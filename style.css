@@ -1,0 +1,89 @@
+div.wydzial {
+    margin: 5px;
+    border: 5px solid #ccc;
+    float: left;
+    width: 280px;
+    text-align: center;
+    background-color: white;
+  }
+  
+  div.wydzial img {
+    width: 100%;
+    height: auto;
+  }
+  
+  div.nazwa {
+    padding: 15px;
+    text-align: center;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  div.uczelnia {
+    width: 1000px;
+    height: 550px;
+    background-color: lightyellow;
+    float: left;
+  }
+
+  body {
+    background-color: lightgray;
+  }
+
+  div.panel_uzytkownika {
+    margin: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    float: right;
+    width: 300px;
+    height: 400px;
+    background-color: orange;
+  }
+
+  div.panel_uzytkownika img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+nav
+{
+    width: 200px;
+    background-color: #303030;
+    font-size: 18px;
+    line-height:200%;
+    border-radius: 6px;
+    display:block;
+    float: left;
+}
+nav ul{
+  list-style-type:none;
+  padding:10px;
+  background-color: orange;
+  border-left: 5px solid #303030;
+  display:block;
+}
+nav ul li{
+   text-align:center;
+ display:block;
+
+}
+nav ul li a{
+   text-decoration:none;
+  color:black;
+   display:block;
+  
+}
+nav ul li:hover{
+   background-color:#F36742;
+ 
+}
+nav  ul li:active{
+  background-color:#1F272B;
+ 
+}
+
+nav ul li a:active{
+  color:#FFFFFF;
+}
