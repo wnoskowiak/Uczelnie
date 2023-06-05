@@ -4,8 +4,9 @@ import java.util.ArrayList;
 
 public class User {
     private String login;
-    private ArrayList<Building> buildings;
+    private Village villge;
     private Wallet wallet;
+
     public User(String login) {
         this.login = login;
         this.buildings = new ArrayList<>();
