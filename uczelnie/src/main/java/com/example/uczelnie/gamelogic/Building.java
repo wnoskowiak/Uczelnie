@@ -21,7 +21,7 @@ public class Building {
     private long cost;
 
 
-    public Building(Village v, String name, double priceMod, double avgStudentQuality, double studentEfficiencyModifier, long cost, List<Unlock> unlocks) {
+    public Building(Village v, String name, double priceMod, long cost) {
         this.name = name;
         this.bId = v.buildingsBuilt();
         this.upgrades = new int[2];
@@ -30,10 +30,7 @@ public class Building {
         this.mods = new double[2];
         this.priceMod = priceMod;
         this.description = "";
-        if (v != )
-            this.avgStudentQuality = v.getAvgStudentQuality();
-        else
-            this.avgStudentQuality = 1;
+        this.avgStudentQuality = v.getAvgStudentQuality();
         this.cost = cost;
     }
 
@@ -84,8 +81,8 @@ public class Building {
         }
     }
 
-    public static Building starter() {
-
+    public static Building starter(Village v) {
+        return Building(v, "Wydział Zarządzania", 1.6, 0, )
     }
 }
 
