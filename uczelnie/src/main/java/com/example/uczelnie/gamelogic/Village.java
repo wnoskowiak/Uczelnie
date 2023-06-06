@@ -52,4 +52,8 @@ public class Village {
     public int buildingsBuilt() {
         return this.faculties.size();
     }
+
+    public void addBuilding(Building building) {
+        this.faculties.add(building);
+    }
 }

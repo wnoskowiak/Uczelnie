@@ -4,30 +4,15 @@ import java.util.ArrayList;
 
 public class User {
     private String login;
-    private Village villge;
+    private Village village;
     private Wallet wallet;
 
-    public User(String login) {
+    public User(String login, String villageName) {
         this.login = login;
-        this.buildings = new ArrayList<>();
+        this.village = new Village(villageName, );
         this.wallet = new Wallet();
     }
-    public String login() {
+    public String getLogin() {
         return this.login;
-    }
-    public ArrayList<Building> buildings() {
-        return this.buildings;
-    }
-    public void addBuilding(Building building) {
-        this.buildings.add(building);
-    }
-
-    public void buy(Building building) {
-        if (!wallet.canBuy(building)) {
-            // Jakiś błąd/wyjątek;
-        }
-        wallet.updateBalance(-building.cost());
-        this.addBuilding(building);
-
     }
 }
