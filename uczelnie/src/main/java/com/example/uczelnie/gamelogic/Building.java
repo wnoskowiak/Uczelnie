@@ -13,7 +13,7 @@ public class Building {
     private double mods[];
     private double priceMod;
     private String description;
-    public int students;
+    public long students;
     private long income;
     public double avgStudentQuality;
     public Instant lastCollected;
@@ -21,13 +21,14 @@ public class Building {
     private long cost;
 
 
-    public Building(Village v, String name, double priceMod, long cost) {
+    public Building(Village v, String name, long cost, double priceMod) {
         this.name = name;
         this.bId = v.buildingsBuilt();
         this.upgrades = new int[2];
         this.upgradecost = new long[2];
         this.lastCollected = Instant.now();
         this.mods = new double[2];
+        this.students = 20; // Jak wiadomo każdy, nawet najgorszy wydział będzie mieć jakichś kandydatów
         this.priceMod = priceMod;
         this.description = "";
         this.avgStudentQuality = v.getAvgStudentQuality();
@@ -81,8 +82,12 @@ public class Building {
         }
     }
 
+    public long getStudents() {
+        return this.students;
+    }
+
     public static Building starter(Village v) {
-        return Building(v, "Wydział Zarządzania", 1.6, 0, )
+        return new Building(v, "Wydział Zarządzania", 0, 1.6);
     }
 }
 
