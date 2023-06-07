@@ -1,9 +1,7 @@
 package com.example.uczelnie.gamelogic;
 
-import java.sql.Timestamp;
 import java.time.Duration;
 import java.time.Instant;
-import java.util.List;
 
 public class Building {
     private String name;
@@ -13,9 +11,9 @@ public class Building {
     private double mods[];
     private double priceMod;
     private String description;
-    public long students;
+    private long students;
     private long income;
-    public double avgStudentQuality;
+    private double avgStudentQuality;
     public Instant lastCollected;
     public long moneyCap;
     private long cost;
@@ -39,6 +37,10 @@ public class Building {
         if (number > 1 || number < 0)
             return false;
         return wallet.getMoney() > upgradecost[number];
+    }
+
+    public double getAvgStudentQuality() {
+        return this.avgStudentQuality;
     }
 
     public void setName(String newName) {
@@ -71,7 +73,7 @@ public class Building {
     }
 
     public long getCurrentMoney() {
-        var candidate = this.income * Duration.between(this.lastCollected, Instant.now()).toMinutes();
+        var candidate = (long) (this.avgStudentQuality * this.income * Duration.between(this.lastCollected, Instant.now()).toMinutes());
         return Long.min(candidate, this.moneyCap);
     }
 
@@ -80,6 +82,16 @@ public class Building {
             wallet.addMoney(this.getCurrentMoney());
             this.lastCollected = Instant.now();
         }
+    }
+
+    public void raiseStudentNumber(long new_students) {
+        this.students += new_students;
+    }
+
+    public void enrollNewStudents(long new_students) {
+        var res = this.students * this.avgStudentQuality + new_students;
+        this.students += new_students;
+        this.avgStudentQuality = res / this.students;
     }
 
     public long getStudents() {
