@@ -6,7 +6,8 @@ import java.util.List;
 public class Village {
     public int id;
     private String name;
-    private List<Building> faculties; // Lista wybudowanych budynków
+    private final List<Building> faculties; // Lista wybudowanych budynków
+    private int builders;
     private int thlvl; // Town Hall lvl = poziom uczelni = limit wybudowanych budynków
     // Ponieważ nie mamy systemu punktów doświadczenia, kolejne poziomy uczelni będą do kupienia
 
@@ -20,6 +21,10 @@ public class Village {
 
     public int getId() {
         return id;
+    }
+
+    public void renameVillage(String newName) {
+        this.name = "" + newName;
     }
 
     public double getAvgStudentQuality() {
@@ -49,19 +54,19 @@ public class Village {
     public Village(String name, int id) {
         this.name = name;
         this.id = id;
+        this.builders = 1;
         this.faculties = new ArrayList<>();
         this.faculties.add(Building.starter(this));
     }
 
-    public boolean tryToBuild(String name, long cost, double pricemod) {
+    public boolean tryToBuild(Building b) {
         if (!this.newBuildingPermitted())
             return false;
-        if (pricemod <= 1)
+        if (!this.builderAvailable())
             return false;
-        if (cost <= 0)
-            return false;
-        Building building = new Building(this, name, cost, pricemod);
-        this.faculties.add(building);
+        this.builders--;
+        this.faculties.add(b);
+        b.init(this.buildingsBuilt());
         return true;
     }
 
@@ -69,8 +74,31 @@ public class Village {
         return this.faculties.size();
     }
 
+    public void freeBuilder() {
+        this.builders++;
+    }
+
     public void lvlUp() {
         this.thlvl++;
+        int sqrt = (int) Math.sqrt(this.thlvl);
+        if (sqrt * sqrt == thlvl)
+            this.builders++;
+    }
+
+    public void tryToCollect(int bId, Wallet w) {
+        if (this.faculties.get(bId).collect(w))
+            this.builders++;
+    }
+
+    public void rename(int bId, String newName, String newDesc, int flags) {
+        if (flags % 2 == 0)
+            this.faculties.get(bId).setName(newName);
+        if (flags % 3 == 0)
+            this.faculties.get(bId).setDesc(newDesc);
+    }
+
+    public boolean builderAvailable() {
+        return this.builders > 0;
     }
 
     public boolean newBuildingPermitted() {
