@@ -15,8 +15,6 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Size;
 
-import com.example.uczelnie.gamelogic.Village;
-import com.example.uczelnie.gamelogic.Wallet;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
@@ -43,10 +41,6 @@ public class User {
     @Size(max = 120)
     private String password;
 
-    Wallet wallet;
-
-    Village village;
-
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
@@ -58,8 +52,6 @@ public class User {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.wallet = new Wallet();
-        this.village = new Village(username + "'s village", id);
     }
 
     public Long getId() {
