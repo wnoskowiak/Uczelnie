@@ -67,6 +67,7 @@
   margin: 1em 0px 1em 0px;
   display: block;
   padding: 0px 0px 0px 1.5rem;
+  overflow: scroll;
   list-style-type: none;
   list-style-position: outside;
 }
@@ -77,13 +78,12 @@
   display: flex !important;
   transform: none !important;
 }
-.Content {
-  font-size: 64px;
-  font-family: Inter;
-  font-weight: 400;
-  line-height: 1.15;
-  text-transform: none;
-  text-decoration: none;
+.scroll {
+  width: 100%;
+  border: 2px dashed rgba(120, 120, 120, 0.4);
+  height: 756px;
+  display: flex;
+  align-items: flex-start;
 }
 .Heading {
   font-size: 32px;
@@ -93,3 +93,14 @@
   text-transform: none;
   text-decoration: none;
 }
+.Content {
+  font-size: 64px;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 1.15;
+  text-transform: none;
+  text-decoration: none;
+}
+
+
+
