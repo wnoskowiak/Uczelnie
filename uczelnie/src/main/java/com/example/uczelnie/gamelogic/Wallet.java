@@ -3,6 +3,10 @@ package com.example.uczelnie.gamelogic;
 public class Wallet {
     private long moneyOwned;
 
+    public Wallet() {
+        this.moneyOwned = 0;
+    }
+
     public long getMoney() {
         return moneyOwned;
     }
