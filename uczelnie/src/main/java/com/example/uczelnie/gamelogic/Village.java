@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Village {
-    public int id;
+    public long id;
     private String name;
     private final List<Building> faculties; // Lista wybudowanych budynków
     private int builders;
@@ -19,7 +19,7 @@ public class Village {
         return "" + name;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -51,7 +51,7 @@ public class Village {
         return acc;
     }
 
-    public Village(String name, int id) {
+    public Village(String name, long id) {
         this.name = name;
         this.id = id;
         this.builders = 1;
