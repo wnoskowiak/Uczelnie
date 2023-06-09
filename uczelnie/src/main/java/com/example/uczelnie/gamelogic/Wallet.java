@@ -1,20 +1,23 @@
 package com.example.uczelnie.gamelogic;
 
 public class Wallet {
-    private int accountBalance;
+    private long moneyOwned;
+
     public Wallet() {
-        this.accountBalance = 0;
+        this.moneyOwned = 0;
     }
 
-    // Fajnie by było zrobić klasę/interfejs po której dziedziczą wszystkie obiekty, które można kupić.
-    public boolean canBuy(Building building) {
-        if (building.cost() <= this.accountBalance)
-            return true;
-        else
-            return false;
+    public long getMoney() {
+        return moneyOwned;
     }
 
-    public void updateBalance (int cost) {
-        this.accountBalance += cost;
+    public void deduct(long cost) {
+        if (this.moneyOwned < cost)
+            return;
+        this.moneyOwned -= cost;
+    }
+
+    public void addMoney(long money) {
+        this.moneyOwned += money;
     }
 }
