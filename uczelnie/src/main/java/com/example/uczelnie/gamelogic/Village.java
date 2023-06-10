@@ -3,13 +3,25 @@ package com.example.uczelnie.gamelogic;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "village")
+
 public class Village {
-    public long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
     private final List<Building> faculties; // Lista wybudowanych budynków
     private int builders;
     private int thlvl; // Town Hall lvl = poziom uczelni = limit wybudowanych budynków
-    // Ponieważ nie mamy systemu punktów doświadczenia, kolejne poziomy uczelni będą do kupienia
+    // Ponieważ nie mamy systemu punktów doświadczenia, kolejne poziomy uczelni będą
+    // do kupienia
 
     public int getThlvl() {
         return thlvl;

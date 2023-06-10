@@ -4,8 +4,18 @@ import java.time.Duration;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "building")
 public class Building {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     public static final long baseCost = 1000;
     public static final double pricemod = 1.6;
     private String name;
@@ -22,7 +32,6 @@ public class Building {
     public long moneyCap;
     private final long cost;
 
-
     public Building(Village v, String name, long cost, double[] mods) {
         this.name = name;
         this.upgrades = new int[2];
@@ -31,7 +40,8 @@ public class Building {
         this.upgradecost[1] = cost / 2;
         this.isBeingUpgraded = true;
         this.lastCollected = Instant.now().plus(5, ChronoUnit.YEARS);
-        this.mods = mods; // mods[0] to współczynnik zwiększania zarobków wydziału, mods[1] zwiększania jakości studentów
+        this.mods = mods; // mods[0] to współczynnik zwiększania zarobków wydziału, mods[1] zwiększania
+                          // jakości studentów
         this.students = 20; // Jak wiadomo każdy, nawet najgorszy wydział będzie mieć jakichś kandydatów
         this.description = "";
         this.avgStudentQuality = v.getAvgStudentQuality();
@@ -91,7 +101,8 @@ public class Building {
     public long getCurrentMoney() {
         if (this.lastCollected.isAfter(Instant.now()))
             return 0;
-        var candidate = (long) (this.avgStudentQuality * this.income * Duration.between(this.lastCollected, Instant.now()).toMinutes());
+        var candidate = (long) (this.avgStudentQuality * this.income
+                * Duration.between(this.lastCollected, Instant.now()).toMinutes());
         return Long.min(candidate, this.moneyCap);
     }
 
@@ -229,5 +240,3 @@ public class Building {
         return new Building(v, "Wydział Psychologii", baseCost * 6, mods);
     }
 }
-
-
