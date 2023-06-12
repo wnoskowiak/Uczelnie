@@ -25,6 +25,9 @@ public class RoleRepository implements ObjectRepository<Role> {
 
   public RoleRepository() {
     this.repository = new HashMap<>();
+    this.repository.put(1L, new Role(ERole.ROLE_USER));
+    this.repository.put(2L, new Role(ERole.ROLE_ADMIN));
+    this.repository.put(3L, new Role(ERole.ROLE_MODERATOR));
   }
 
   @Override

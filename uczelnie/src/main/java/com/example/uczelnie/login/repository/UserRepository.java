@@ -58,6 +58,12 @@ public class UserRepository implements ObjectRepository<User> {
     return e;
   }
 
+  public User createUser(String username, String email, String password) {
+    var user = new User(username, email, password, this.repository.size());
+    this.store(user);
+    return user;
+  }
+
   public boolean existsByUsername(String username) {
     if(this.search(username).isEmpty()){
       return false;

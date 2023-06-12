@@ -1,7 +1,9 @@
 package com.example.uczelnie.login.security.jwt;
 
+import java.util.Base64;
 import java.util.Date;
 
+import io.jsonwebtoken.impl.Base64Codec;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -78,11 +80,15 @@ public class JwtUtils {
     }
 
     public String generateTokenFromUsername(String username) {
+        String base64String = "Yn2kjibddFAWtnPJ2AFlL8WXmohJMCvigQggaEypa5E=";
+
+        byte[] decodedBytes = Base64.getDecoder().decode(base64String);
+        String decodedString = new String(decodedBytes);
         return Jwts.builder()
                 .setSubject(username)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date((new Date()).getTime() + jwtExpirationMs))
-                .signWith(SignatureAlgorithm.HS512, jwtSecret)
+                .signWith(SignatureAlgorithm.HS512, decodedString)
                 .compact();
     }
 }

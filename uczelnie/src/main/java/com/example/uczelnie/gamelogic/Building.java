@@ -30,7 +30,7 @@ public class Building {
         this.upgradecost[0] = cost / 2;
         this.upgradecost[1] = cost / 2;
         this.isBeingUpgraded = true;
-        this.lastCollected = Instant.now().plus(5, ChronoUnit.YEARS);
+        this.lastCollected = Instant.now().plus(5000, ChronoUnit.HOURS);
         this.mods = mods; // mods[0] to współczynnik zwiększania zarobków wydziału, mods[1] zwiększania jakości studentów
         this.students = 20; // Jak wiadomo każdy, nawet najgorszy wydział będzie mieć jakichś kandydatów
         this.description = "";

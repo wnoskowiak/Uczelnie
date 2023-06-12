@@ -17,6 +17,7 @@ import javax.validation.constraints.Size;
 
 import com.example.uczelnie.gamelogic.Village;
 import com.example.uczelnie.gamelogic.Wallet;
+import com.example.uczelnie.login.repository.UserRepository;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
@@ -54,10 +55,11 @@ public class User {
     public User() {
     }
 
-    public User(String username, String email, String password) {
+    public User(String username, String email, String password, long id) {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.id = id;
         this.wallet = new Wallet();
         this.village = new Village(username + "'s village", id);
     }
