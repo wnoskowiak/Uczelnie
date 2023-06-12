@@ -80,15 +80,11 @@ public class JwtUtils {
     }
 
     public String generateTokenFromUsername(String username) {
-        String base64String = "Yn2kjibddFAWtnPJ2AFlL8WXmohJMCvigQggaEypa5E=";
-
-        byte[] decodedBytes = Base64.getDecoder().decode(base64String);
-        String decodedString = new String(decodedBytes);
         return Jwts.builder()
                 .setSubject(username)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date((new Date()).getTime() + jwtExpirationMs))
-                .signWith(SignatureAlgorithm.HS512, decodedString)
+                .signWith(SignatureAlgorithm.HS512, jwtSecret)
                 .compact();
     }
 }

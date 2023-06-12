@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+  <title>Twoja uczelnia</title>
+  <link rel="stylesheet" href="main2.css">
+</head>
+<body onload="startLoad()">
+<h2> Twoja uczelnia</h2>
+
+<div id = 'menu'>
+  <h1> MENU</h1>
+  <ul>
+    <li onclick="window.location.href = 'help.html'"> Jak grać</li>
+    <li onclick="window.location.href = 'shop.html'"> Sklep</li>
+  </ul>
+</div>
+
+<div id = "faculties">
+</div>
+
+<div id = "facultyOptions">
+  <div class = "nameElement"></div>
+  <div class = "levelElement"> </div>
+  <div id = "upgradeCost"></div>
+  <button class="button" id = "buyButton"> Zakup upgrade</button>
+</div>
+
+</body>
+
+<script>
+function startLoad() {
+  document.getElementById("buyButton").style.display = 'none';
+  let names = ["Wydział Biologii", "Wydział Matematyki", "Wydział Fizyki", "Wydział Chemii", "Wydział Informatyki"];
+  let descriptions = ["opis", "fajny wydział", "...................", "opis", "opis"];
+  let levels = [2, 11, 5, 21, 37];
+  let n = names.length;
+  let i;
+  for (i = 0; i < n; ++i) {
+    let element = document.createElement('div');
+    element.className = 'faculty';
+    let nameEl = document.createElement('div');
+    let descriptionEl = document.createElement('div');
+    let levelEl = document.createElement('div');
+    nameEl.className = 'nameElement';
+    descriptionEl.className = 'descriptionElement';
+    levelEl.className = 'levelElement';
+    let img = document.createElement('img');
+    img.src = 'uczelnia.jpg';
+    element.appendChild(img);
+    element.appendChild(nameEl);
+    element.appendChild(descriptionEl);
+    element.appendChild(levelEl);
+    nameEl.textContent = names[i];
+    descriptionEl.textContent = descriptions[i];
+    levelEl.textContent = "Level " + levels[i];
+    document.getElementById("faculties").appendChild(element);
+    element.addEventListener("click", function(index) {
+      return function(){
+        click(names[index], levels[index]);
+      }
+    }(i))
+  }
+}
+
+function buyUpgrade(name) {
+  // TODO
+}
+function click(name, level) {
+  document.getElementById("buyButton").style.display = "initial";
+  let options = document.getElementById('facultyOptions');
+  options.getElementsByClassName("nameElement")[0].textContent = name;
+  options.getElementsByClassName("levelElement")[0].textContent = "Aktualny poziom: " + level;
+  document.getElementById("upgradeCost").textContent = "Koszt upgradu: x";
+
+}
+</script>
+</html>

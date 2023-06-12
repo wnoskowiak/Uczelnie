@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+  <title>Sklep</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body onload="load_faculties_list()">
+
+<h1>Kup nowy wydział</h1>
+
+<div id = 'facultiesShopContainer'> </div>
+
+<div id = 'costSummary'>
+  <div style = "font-size: 35px">Podsumowanie </div>
+  <div id = 'koszt'> </div>
+  <button class="button" onclick="kup()"> Kup </button>
+</div>
+
+</body>
+
+<script>
+  let clickedName = " ";
+  let clickedCost = 0;
+  let namesArray;
+  let costsArray;
+  function kup() {
+    // tutaj trzeba przekazać do javy że kupujemy nowy wydział (typ/nazwa: clickedName, koszt: clickedCost)
+    document.getElementById('koszt').innerHTML = "";
+    let message = clickedName + " został zakupiony!";
+    alert(message);
+  }
+  function clickFaculty(i) {
+    document.getElementById('koszt').innerHTML += costsArray[i];
+  }
+  function load_faculties_list(_names, _costs) {
+    let names = ["Wydział Biologii", "Wydział Matematyki", "Wydział Fizyki"];
+    let costs = [100, 200, 300];
+    namesArray = names;
+    costsArray = costs;
+    let n = names.length;
+    let i;
+    for (i = 0; i < n; ++i) {
+      let element = document.createElement('div');
+      element.className = 'facultyShopItem';
+      element.textContent = names[i] + "\n koszt: " + costs[i];
+      let img = document.createElement('img');
+      img.src = 'uczelnia.jpg';
+      element.appendChild(img);
+      element.addEventListener("click", function(index) {
+        return function(){
+          document.getElementById('koszt').innerHTML = namesArray[index] + "\n" + "Koszt:  " + costsArray[index];
+          clickedCost = costsArray[index];
+          clickedName = names[index];
+        }
+      }(i))
+      document.getElementById("facultiesShopContainer").appendChild(element);
+    }
+  }
+</script>
+</html>

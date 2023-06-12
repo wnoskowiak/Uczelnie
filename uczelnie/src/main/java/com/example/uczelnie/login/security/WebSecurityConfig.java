@@ -15,6 +15,8 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.example.uczelnie.login.security.jwt.AuthEntryPointJwt;
+
+import static org.springframework.security.config.Customizer.withDefaults;
 import com.example.uczelnie.login.security.jwt.AuthTokenFilter;
 import com.example.uczelnie.login.security.services.UserDetailsServiceImpl;
 
@@ -57,8 +59,11 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-
-        http.csrf().disable().authorizeRequests().anyRequest().permitAll();
+        http.cors(cors -> cors.disable()).csrf(cors -> cors.disable())
+                .exceptionHandling(handling -> handling.authenticationEntryPoint(unauthorizedHandler))
+                .sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authorizeRequests().requestMatchers("/api/auth/**")
+                .permitAll().anyRequest().authenticated();
 
         http.authenticationProvider(authenticationProvider());
 
