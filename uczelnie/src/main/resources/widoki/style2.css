@@ -1,0 +1,41 @@
+.facultyShopItem {
+    width: 300px;
+    height: 200px;
+    float: left;
+    background-color: #85DCFF;
+    border: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    white-space: pre-line;
+}
+
+.facultyShopItem:hover {
+    background-color: #4CC366;
+}
+
+#costSummary {
+    white-space: pre-line;
+    width: 400px;
+    height: 200px;
+    background-color: rgba(190, 231, 228, 0.8);
+    font-size: 20px;
+    position: relative;
+    float: right;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+}
+
+img {
+    width: 200px;
+    height: 160px;
+    position: relative;
+}
