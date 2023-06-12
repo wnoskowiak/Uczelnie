@@ -17,7 +17,7 @@ public class EditBuildingDataHandler {
         this.objectMapper = objectMapper;
     }
 
-    @PostMapping("/example")
+    @PostMapping("/exampleedit")
     public ResponseEntity<String> handlePostRequest(@RequestBody String requestBody) {
         try {
             EditBuildingDataSchema request = objectMapper.readValue(requestBody, EditBuildingDataSchema.class);

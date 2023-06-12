@@ -17,7 +17,7 @@ public class LevelUpBuildingHandler {
         this.objectMapper = objectMapper;
     }
 
-    @PostMapping("/example")
+    @PostMapping("/examplelevel")
     public ResponseEntity<String> handlePostRequest(@RequestBody String requestBody) {
         try {
             LevelUpBuildingSchema request = objectMapper.readValue(requestBody, LevelUpBuildingSchema.class);
