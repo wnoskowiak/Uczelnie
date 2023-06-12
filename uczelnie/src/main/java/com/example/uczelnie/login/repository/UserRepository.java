@@ -58,4 +58,11 @@ public class UserRepository implements ObjectRepository<User> {
 		return e;
 	}
 
+  public boolean existsByUsername(String username) {
+    if(this.search(username).isEmpty()){
+      return false;
+    }
+    return true;
+  }
+
 }
