@@ -65,4 +65,8 @@ public class UserRepository implements ObjectRepository<User> {
     return true;
   }
 
+  public boolean existsByEmail(String email) {
+    return false;
+  }
+
 }
