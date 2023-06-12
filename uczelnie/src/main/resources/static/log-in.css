@@ -94,7 +94,7 @@
   flex-direction: column;
   justify-content: center;
 }
-.log-in-button {
+.log-in-navlink {
   color: #C5E4FC;
   width: 100%;
   height: 100%;
@@ -103,6 +103,7 @@
   padding-left: 0px;
   padding-right: 0px;
   padding-bottom: 0px;
+  text-decoration: none;
 }
 .log-in-text1 {
   color: #C5E4FC;
@@ -115,7 +116,7 @@
   align-items: center;
   justify-content: center;
 }
-.log-in-button1 {
+.log-in-button {
   color: #C5E4FC;
   width: 50%;
   height: 100%;
