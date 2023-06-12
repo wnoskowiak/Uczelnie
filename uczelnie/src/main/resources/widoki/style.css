@@ -85,6 +85,43 @@
   display: flex;
   align-items: flex-start;
 }
+.login {
+  align-self: center;
+  border-width: 5px;
+  background-color: #ADC9DE;
+}
+
+.loginButton {
+  color: 234E70;
+  background-color: #234E70;
+}
+.loginButton:hover {
+  border-width: 15;
+  background-color: #f9f2cd;
+}
+.heading {
+  color: #FBF8BE;
+  font-size: 90px;
+  align-self: center;
+  font-style: normal;
+  text-align: center;
+  font-family: Roboto Mono;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.menuButton {
+  color: #244347;
+  width: 80%;
+  height: var(--dl-size-size-medium);
+  font-size: 45px;
+  border-color: #536669;
+  border-width: 5px;
+  background-color: #B6E1E7;
+}
+.menuButton:hover {
+  border-width: 10px;
+  background-color: #C1EFF5;
+}
 .Heading {
   font-size: 32px;
   font-family: Inter;

@@ -33,6 +33,11 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
       data-tag="font"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&amp;display=swap"
+      data-tag="font"
+    />
     <!--This is the head section-->
     <!-- <style> ... </style> -->
     <style data-section-id="dropdown">
@@ -51,38 +56,46 @@
       <link href="./log-in.css" rel="stylesheet" />
 
       <div class="log-in-container">
-        <div class="log-in-container1">
-          <h1 class="log-in-text">
-            <span>Uczelnie</span>
-            <br />
-            <br />
-          </h1>
-        </div>
+        <div class="log-in-container1"></div>
         <div class="log-in-container2">
-          <label for="login"></label><input
-            type="text"
-            id="login"
-            name="login"
-            placeholder="login"
-            class="input"
-          />
-        </div>
-        <div class="log-in-container3">
-          <label>
-            <input type="text" placeholder="hasło" class="input" />
-          </label>
-        </div>
-        <div class="log-in-container4">
+          <div class="log-in-container3">
+            <span class="log-in-text heading">Uczelnie</span>
+          </div>
+          <div class="log-in-container4"></div>
           <div class="log-in-container5">
-            <button type="submit" class="button">
-              <span>
-                <span>Zaloguj</span>
-                <br />
-              </span>
-            </button>
+            <input
+              type="text"
+              id="login"
+              name="login"
+              placeholder="login"
+              class="log-in-textinput login input"
+            />
+            <input
+              type="text"
+              placeholder="hasło"
+              class="log-in-textinput1 login input"
+            />
           </div>
           <div class="log-in-container6">
-            <button type="button" class="button">Button</button>
+            <div class="log-in-container7">
+              <button
+                type="submit"
+                class="log-in-button button loginButton login"
+              >
+                <span class="log-in-text1">
+                  <span>Zaloguj</span>
+                  <br />
+                </span>
+              </button>
+            </div>
+            <div class="log-in-container8">
+              <button
+                type="button"
+                class="log-in-button1 button loginButton login"
+              >
+                Zarejestruj
+              </button>
+            </div>
           </div>
         </div>
       </div>

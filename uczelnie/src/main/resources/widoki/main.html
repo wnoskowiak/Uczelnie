@@ -33,6 +33,11 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
       data-tag="font"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&amp;display=swap"
+      data-tag="font"
+    />
     <!--This is the head section-->
     <!-- <style> ... </style> -->
     <style data-section-id="dropdown">
@@ -52,23 +57,23 @@
 
       <div class="main-container">
         <div class="main-container1">
-          <span>
+          <span class="main-text">
             <span>Nazwa</span>
             <br />
           </span>
-          <span>
+          <span class="main-text03">
             <span>Twoja nazwa użytkownika</span>
             <br />
           </span>
         </div>
         <div class="main-container2">
           <div class="main-container3">
-            <h1 class="main-text06">menu</h1>
+            <h1 class="main-heading">menu</h1>
             <button
               id="sklep"
               name="sklep"
               type="button"
-              class="main-button button"
+              class="main-button button menuButton"
             >
               <span>
                 <span>sklep</span>
@@ -79,7 +84,7 @@
               id="pomoc"
               name="pomoc"
               type="button"
-              class="main-button1 button"
+              class="main-button1 button menuButton"
             >
               pomoc
             </button>
@@ -88,13 +93,13 @@
             <div class="main-container5 scroll list">
               <ul class="main-ul list">
                 <li class="main-list-item list-item">
-                  <span class="main-text10">Text</span>
+                  <span class="main-text09">Text</span>
                   <img
                     alt="image"
                     src="https://play.teleporthq.io/static/svg/default-img.svg"
                     class="main-image"
                   />
-                  <button type="button" class="main-button2 button">
+                  <button type="button" class="main-button2 button menuButton">
                     zbierz
                   </button>
                   <div
@@ -105,7 +110,7 @@
                       data-thq="thq-dropdown-toggle"
                       class="main-dropdown-toggle"
                     >
-                      <span class="main-text11">więcej</span>
+                      <span class="main-text10">więcej</span>
                       <div
                         data-thq="thq-dropdown-arrow"
                         class="main-dropdown-arrow"
@@ -124,7 +129,7 @@
                           data-thq="thq-dropdown-toggle"
                           class="main-dropdown-toggle1"
                         >
-                          <span class="text">Nazwa</span>
+                          <span class="main-nazwa">Sub-menu Item</span>
                         </div>
                       </li>
                       <li
@@ -135,7 +140,7 @@
                           data-thq="thq-dropdown-toggle"
                           class="main-dropdown-toggle2"
                         >
-                          <span class="text">Ilość studentów</span>
+                          <span class="main-ilo-studentw">Sub-menu Item</span>
                         </div>
                       </li>
                       <li
@@ -146,7 +151,7 @@
                           data-thq="thq-dropdown-toggle"
                           class="main-dropdown-toggle3"
                         >
-                          <span class="text">Dochód i cap</span>
+                          <span class="main-dochd-i-cap">Sub-menu Item</span>
                         </div>
                       </li>
                       <li
@@ -158,8 +163,8 @@
                           class="main-dropdown-toggle4"
                         >
                           <div class="main-container6">
-                            <button type="button" class="button">Upgrade1</button>
-                            <button type="button" class="button">Upgrade2</button>
+                            <button type="button" class="button">Button</button>
+                            <button type="button" class="button">Button</button>
                           </div>
                         </div>
                       </li>
@@ -171,12 +176,10 @@
           </div>
         </div>
         <div class="main-container7">
-          <label>
-<textarea
-  placeholder="twoje zasoby"
-  class="main-textarea textarea"
-></textarea>
-          </label>
+          <textarea
+            placeholder="twoje zasoby"
+            class="main-textarea textarea"
+          ></textarea>
           <span>Ilość zasobów</span>
         </div>
       </div>
