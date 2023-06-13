@@ -10,6 +10,7 @@
 <h1>Kup nowy wydział</h1>
 
 <div id = 'facultiesShopContainer'> </div>
+<br> <br>
 
 <div id = 'costSummary'>
   <div style = "font-size: 35px">Podsumowanie </div>
@@ -34,8 +35,8 @@
     document.getElementById('koszt').innerHTML += costsArray[i];
   }
   function load_faculties_list(_names, _costs) {
-    let names = ["Wydział Biologii", "Wydział Matematyki", "Wydział Fizyki"];
-    let costs = [100, 200, 300];
+    let names = ["Wydział Biologii", "Wydział Matematyki", "Wydział Fizyki", "Wydział Polonistyki", "Wydział Informatyki", "Wydział Nauk o Grzybach", "Wydział Prawa", "Wydział Astronomii"];
+    let costs = [100, 2000, 1300, 50, 5400, 1000, 1200, 2100];
     namesArray = names;
     costsArray = costs;
     let n = names.length;
