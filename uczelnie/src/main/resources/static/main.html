@@ -6,8 +6,10 @@
   <link rel="stylesheet" href="main2.css">
 </head>
 <body onload="startLoad()">
+<button class = 'button' onclick="light_mode()"> lightmode </button>
+<button class = 'button' onclick="dark_mode()"> darkmode </button>
+<button class = 'button' onclick="d_mode()"> wysoki kontrast </button>
 <h2> Twoja uczelnia</h2>
-
 <div id = 'menu'>
   <h1> MENU</h1>
   <ul>
@@ -73,6 +75,21 @@ function click(name, level) {
   options.getElementsByClassName("levelElement")[0].textContent = "Aktualny poziom: " + level;
   document.getElementById("upgradeCost").textContent = "Koszt upgradu: x";
 
+}
+
+function light_mode() {
+  var el = document.body;
+  el.className = "light_mode";
+}
+
+function dark_mode() {
+  var el = document.body;
+  el.className = "dark_mode";
+}
+
+function d_mode() {
+  var el = document.body;
+  el.className = "d_mode";
 }
 </script>
 </html>

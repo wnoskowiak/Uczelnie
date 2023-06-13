@@ -65,3 +65,18 @@ li {
 li:hover {
     background-color: #9ad5a6;
 }
+
+.light_mode {
+    background-color: white;
+    color: black;
+}
+
+.dark_mode {
+    background-color: black;
+    color: white;
+}
+
+.d_mode {
+    background-color: #003EB3;
+    color: yellow;
+}
